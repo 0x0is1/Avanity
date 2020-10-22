@@ -23,16 +23,20 @@ headers = {
     'Connection': 'close',
 }
 
+
 def main(message):
-    data = '{"content":"' + message + '","nonce":' + str(random.randint(1000, 99999999))+',"tts":false}'
+    data = '{"content":"' + message + '","nonce":' + \
+        str(random.randint(1000, 99999999))+',"tts":false}'
     response = requests.post(url, headers=headers, cookies=cookies, data=data)
     return response.content
 
+
 while True:
     try:
-    	main('*work')
-    	main('*dep all')
-    	time.sleep(cooldown_time)
-    	continue
+        main('*work')
+        time.sleep(2)
+        main('*dep all')
+        time.sleep(cooldown_time)
+        continue
     except:
-	    pass
+        pass
