@@ -32,7 +32,7 @@ while True:
     try:
     	main('*work')
     	main('*dep all')
-    	time.sleep(30)
+    	time.sleep(cooldown_time)
     	continue
     except:
 	    pass
