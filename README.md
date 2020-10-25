@@ -1,6 +1,6 @@
 # Avanity : A Discord casino self earn bot
 
-[![Build Status](https://travis-ci.com/0x0is1/Avanity.svg?branch=master)](https://travis-ci.com/0x0is1/Avanity)
+[![Build Status](https://travis-ci.com/0x0is1/Avanity.svg?branch=main)](https://travis-ci.com/0x0is1/Avanity)
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/0x0is1off@gmail.com)
 
 ## Requirements
