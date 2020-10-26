@@ -39,14 +39,15 @@ def logging():
     try:
         token = login(email, password)
         if len(token) == 59:
-            print('Login successfull')
+            print('Login successful')
             f = open('tempfile.txt', 'w')
             f.write(token)
             f.close()
         else:
             print(token)
             exit(0)
-    except:
+    except Exception as e:
+        print(e)
         print('check email and password again!')
         exit(0)
         
@@ -63,26 +64,29 @@ def log_check():
 
 def app():
     i = 0
-    while True:
-        try:
-            auth_token = os.environ.get('CASINO_BOT_TOKEN')
-        except:
-            auth_token = log_check()
-        
-        if auth_token == '' or auth_token == None:
-            print('You are not logged in, please login')
-            logging()
-            continue
+    try:
+        auth_token = os.environ.get('CASINO_BOT_TOKEN')
+        if auth_token == None or auth_token == '':
+            raise Exception
+    except:
+        auth_token = log_check()
+
+    if auth_token == '' or auth_token == None:
+        print('You are not logged in, please login')
+        logging()
+        app()
+
+    res = main('ping', auth_token).decode('utf-8')
+    try:
+        print(json.loads(res)['message'])
+        exit(0)
+    except:
+        pass
+
+    while True:    
         i += 1
+        print('Bot running for count: ' + str(i))
         try:
-            if i == 1:
-                res = main('ping', auth_token).decode('utf-8')
-                try:
-                    print(json.loads(res)['message'])
-                    exit(0)
-                except Exception as e:
-                    print(e)
-            print('Bot running for count: ' + str(i))
             if work:
                 time.sleep(wait_duration)
                 main('*work', auth_token)
@@ -95,7 +99,6 @@ def app():
             time.sleep(wait_duration)
             main('*dep all', auth_token)
             time.sleep(cooldown_time)
-
         except KeyboardInterrupt:
             print('You pressed ctr+C')
             choice = input('Press c for continue, e for exit, l for lougout and exit: ')
@@ -114,7 +117,7 @@ def app():
                 print('Unknown choice entered, exiting...')
         except Exception as e:
             print(e)
-            
+            pass        
 try:
     if sys.argv[1] == '--version':
         print('Avanity version 1.0')
