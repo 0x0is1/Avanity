@@ -1,6 +1,8 @@
 # Copy channel id from discord
-channel_id = "750836633456214127"
-# 765221940667219988
+channel_id = "765221940667219988"
+
+# 765221940667219988 for simpletown casino
+
 # next collect cooldown time
 cooldown_time = 30
 
