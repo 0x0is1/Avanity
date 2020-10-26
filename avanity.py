@@ -4,6 +4,7 @@ import random
 import time
 from config import *
 import sys
+import os
 
 url = "https://discord.com/api/v8/channels/" + channel_id + "/messages"
 
@@ -63,8 +64,12 @@ def log_check():
 def app():
     i = 0
     while True:
-        auth_token = log_check()
-        if auth_token == '':
+        try:
+            auth_token = os.environ.get('CASINO_BOT_TOKEN')
+        except:
+            auth_token = log_check()
+        
+        if auth_token == '' or auth_token == None:
             print('You are not logged in, please login')
             logging()
             continue
@@ -73,9 +78,8 @@ def app():
             if i == 1:
                 res = main('ping', auth_token).decode('utf-8')
                 try:
-                    if '401: Unauthorized' in json.loads(res['message']):
-                        print(json.loads(res['message']))
-                        exit(0)
+                    print(json.loads(res['message']))
+                    exit(0)
                 except:
                     pass
             print('Bot running for count: ' + str(i))
@@ -108,8 +112,8 @@ def app():
                 break
             else:
                 print('Unknown choice entered, exiting...')
-        except:
-            pass
+        except Exception as e:
+            print(e)
 
 try:
     if sys.argv[1] == '--version':
