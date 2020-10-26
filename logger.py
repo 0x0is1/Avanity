@@ -27,8 +27,8 @@ def login(email, password):
     jdata = json.loads(str(response.content.decode("utf-8")))
     try:
         return jdata['token']
-    except:
-        return jdata['errors']['password']['_errors'][0]['message']
+    except Exception as e:
+        return e
 
 def logout(auth_token):
     logout_url = 'https://discord.com/api/v8/auth/logout'
