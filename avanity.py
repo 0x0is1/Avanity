@@ -78,10 +78,10 @@ def app():
             if i == 1:
                 res = main('ping', auth_token).decode('utf-8')
                 try:
-                    print(json.loads(res['message']))
+                    print(json.loads(res)['message'])
                     exit(0)
-                except:
-                    pass
+                except Exception as e:
+                    print(e)
             print('Bot running for count: ' + str(i))
             if work:
                 time.sleep(wait_duration)
@@ -114,7 +114,7 @@ def app():
                 print('Unknown choice entered, exiting...')
         except Exception as e:
             print(e)
-
+            
 try:
     if sys.argv[1] == '--version':
         print('Avanity version 1.0')
