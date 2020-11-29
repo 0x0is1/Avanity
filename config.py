@@ -1,4 +1,5 @@
 import os
+import ast
 # Copy channel id from discord
 #channel_id = "765221940667219988"
 channel_id = os.environ.get('CHANNEL_ID')
@@ -14,9 +15,10 @@ wait_duration = 1
 # Note: crime and slut command can give you huge fine
 # if you have a huge amount in casino
 try:
-  crime = bool(os.environ.get('CRIME'))
-  slut = bool(os.environ.get('SLUT'))
-  work = bool(os.environ.get('WORK'))
-  print(crime, slut, work)
-except Exception as e:
-  print(e)
+  crime = ast.literal_eval(os.environ.get('CRIME'))
+  slut = ast.literal_eval(os.environ.get('SLUT'))
+  work = ast.literal_eval(os.environ.get('WORK'))
+except Exception:
+  crime = True
+  slut = True
+  work = True
