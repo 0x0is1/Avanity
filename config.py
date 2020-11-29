@@ -17,5 +17,6 @@ try:
   crime = bool(os.environ.get('CRIME'))
   slut = bool(os.environ.get('SLUT'))
   work = bool(os.environ.get('WORK'))
+  print(crime, slut, work)
 except Exception as e:
   print(e)
