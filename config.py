@@ -14,9 +14,9 @@ wait_duration = 1
 # Note: crime and slut command can give you huge fine
 # if you have a huge amount in casino
 try:
-  crime = os.environ.get('CRIME')
-  slut = os.environ.get('SLUT')
-  work = os.environ.get('WORK')
+  crime = bool(os.environ.get('CRIME'))
+  slut = bool(os.environ.get('SLUT'))
+  work = bool(os.environ.get('WORK'))
 except:
   crime = True
   slut = True
