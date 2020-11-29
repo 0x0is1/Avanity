@@ -1,6 +1,7 @@
+import os
 # Copy channel id from discord
-channel_id = "765221940667219988"
-
+#channel_id = "765221940667219988"
+channel_id = os.environ.get('CHANNEL_ID')
 # 765221940667219988 for simpletown casino
 
 # next collect cooldown time
@@ -12,6 +13,11 @@ wait_duration = 1
 # change commands to True to if you want to enable it
 # Note: crime and slut command can give you huge fine
 # if you have a huge amount in casino
-crime = True
-slut = True
-work = True
+try:
+  crime = os.environ.get('CRIME')
+  slut = os.environ.get('SLUT')
+  work = os.environ.get('WORK')
+except:
+  crime = True
+  slut = True
+  work = True
