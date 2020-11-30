@@ -2,7 +2,7 @@ import os
 import ast
 # Copy channel id from discord
 channel_id = os.environ.get('CHANNEL_ID')
-if channel_id) == None:
+if channel_id == None:
   channel_id = "765221940667219988"
 else:
   print(channel_id)
