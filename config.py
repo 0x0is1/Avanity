@@ -2,7 +2,7 @@ import os
 import ast
 # Copy channel id from discord
 channel_id = os.environ.get('CHANNEL_ID')
-if channel_id == '' or None:
+if type(channel_id) is NoneType:
   channel_id = "765221940667219988"
 # 765221940667219988 for simpletown casino
 
