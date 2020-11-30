@@ -1,8 +1,10 @@
 import os
 import ast
 # Copy channel id from discord
-#channel_id = "765221940667219988"
-channel_id = os.environ.get('CHANNEL_ID')
+try:
+  channel_id = os.environ.get('CHANNEL_ID')
+except:
+  channel_id = "765221940667219988"
 # 765221940667219988 for simpletown casino
 
 # next collect cooldown time
