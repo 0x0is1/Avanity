@@ -6,7 +6,7 @@ channel_id = os.environ.get('CHANNEL_ID')
 # 765221940667219988 for simpletown casino
 
 # next collect cooldown time
-cooldown_time = 30
+cooldown_time = 120
 
 # some casino bots take time to recieve next command or slowmode
 wait_duration = 1
