@@ -9,7 +9,7 @@ else:
 # 765221940667219988 for simpletown casino
 
 # next collect cooldown time
-cooldown_time = 30
+cooldown_time = 61
 
 # some casino bots take time to recieve next command or slowmode
 wait_duration = 1
